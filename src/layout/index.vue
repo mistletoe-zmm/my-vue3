@@ -1,18 +1,31 @@
 <template>
+  <a-layout>
+    <!-- 左侧菜单 -->
+    <layout-menu></layout-menu>
     <a-layout>
-      <a-layout-sider :style="siderStyle">Sider</a-layout-sider>
-      <a-layout>
-        <a-layout-header :style="headerStyle">Header</a-layout-header>
-        <a-layout-content :style="contentStyle">Content</a-layout-content>
-        <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
-      </a-layout>
+      <!-- 头部 -->
+      <a-layout-header :style="headerStyle">
+        <layout-header></layout-header>
+      </a-layout-header>
+      <!-- 内容 -->
+      <a-layout-content>
+        <router-view></router-view>
+      </a-layout-content>
     </a-layout>
+  </a-layout>
 </template>
 
 <script setup lang="ts">
+import { RouterView } from 'vue-router';
+import type { CSSProperties } from 'vue';
+
+import LayoutMenu from './components/layout-menu.vue';
+import LayoutHeader  from './components/layout-header.vue'
+
+const headerStyle: CSSProperties = {
+  height: 64,
+};
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
