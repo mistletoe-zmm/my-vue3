@@ -1,14 +1,10 @@
 <template>
-  <a-layout>
-    <!-- 左侧菜单 -->
+  <a-layout style="min-height: 100vh; background-color: #ffffff;">
+    <!-- 左侧菜单 (历史记录) -->
     <layout-menu></layout-menu>
-    <a-layout>
-      <!-- 头部 -->
-      <a-layout-header :style="headerStyle">
-        <layout-header></layout-header>
-      </a-layout-header>
-      <!-- 内容 -->
-      <a-layout-content>
+    <a-layout style="background: transparent;">
+      <!-- 内容 (AI Chat) -->
+      <a-layout-content style="height: 100vh; overflow: hidden;">
         <router-view></router-view>
       </a-layout-content>
     </a-layout>
@@ -17,14 +13,7 @@
 
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import type { CSSProperties } from 'vue';
-
 import LayoutMenu from './components/layout-menu.vue';
-import LayoutHeader  from './components/layout-header.vue'
-
-const headerStyle: CSSProperties = {
-  height: 64,
-};
 
 </script>
 
